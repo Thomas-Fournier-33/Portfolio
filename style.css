@@ -84,12 +84,14 @@ a {
     max-width: 1200px;
     margin: 0 auto;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 260px 260px 260px 260px;
+    grid-template-rows: repeat(4, 260px);
+    grid-auto-rows: auto;
     grid-template-areas:
         "a a b"
         "c d b"
         "e e f"
-        "e e f";
+        "e e f"
+        "g h i";
 }
 
 .cell-a {
@@ -114,6 +116,25 @@ a {
 
 .cell-f {
     grid-area: f;
+}
+
+.cell-g {
+    grid-area: g;
+}
+
+.cell-h {
+    grid-area: h;
+}
+
+.cell-i {
+    grid-area: i;
+}
+
+.cell-g,
+.cell-h,
+.cell-i {
+    aspect-ratio: 1 / 1;
+    align-self: start;
 }
 
 .project-card {
@@ -216,7 +237,9 @@ a {
             "a a"
             "b c"
             "d e"
-            "f f";
+            "f f"
+            "g h"
+            "i i";
     }
 }
 
@@ -231,7 +254,10 @@ a {
             "c"
             "d"
             "e"
-            "f";
+            "f"
+            "g"
+            "h"
+            "i";
     }
 }
 
