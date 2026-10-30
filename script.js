@@ -86,6 +86,25 @@ document.addEventListener('DOMContentLoaded', () => {
         carousel.addEventListener('mouseenter', stopAutoplay);
         carousel.addEventListener('mouseleave', startAutoplay);
 
+        // Glissement au doigt (téléphone / tablette)
+        let touchStartX = 0;
+        let touchStartY = 0;
+
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].clientX;
+            touchStartY = e.changedTouches[0].clientY;
+            stopAutoplay();
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', (e) => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            const dy = e.changedTouches[0].clientY - touchStartY;
+            if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+                if (dx < 0) next(); else prev();
+            }
+            startAutoplay();
+        }, { passive: true });
+
         update();
         startAutoplay();
     });

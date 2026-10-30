@@ -1220,3 +1220,364 @@ a {
         margin-bottom: 28px;
     }
 }
+
+/* ============================================================
+   VERSION MOBILE / TABLETTE
+   Tout ce qui suit est dans des media queries :
+   au-dessus de 900px de large, la version ordinateur ne change pas.
+   ============================================================ */
+@media (max-width: 900px) {
+
+    html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    /* ---------- Navbar : 2 lignes (logo + nom / liens), toujours visible ---------- */
+    .navbar,
+    body[class] .navbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+        padding: 10px 5% 8px;
+        background: rgba(0, 0, 0, 0.72);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        opacity: 1 !important;
+        /* annule l'effet de disparition au scroll (script.js) */
+    }
+
+    .nav-logo {
+        height: 24px;
+    }
+
+    .nav-name {
+        font-size: 1.05rem;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 0;
+    }
+
+    .nav-links a {
+        font-size: 0.75rem;
+        letter-spacing: 0.06em;
+        padding: 6px 0;
+    }
+
+    /* ---------- Accueil ---------- */
+    .portefolio {
+        height: 100vh;
+        height: 100svh;
+    }
+
+    /* ---------- Fonds sombres (évite le blanc au rebond de scroll) ---------- */
+    .aboutme-page,
+    .contact-page,
+    .resume-page {
+        background-color: #000000;
+    }
+
+    /* ---------- About ---------- */
+    .aboutme-section {
+        position: relative;
+        min-height: 100vh;
+        min-height: 100svh;
+        padding: 100px 6% 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+    }
+
+    .aboutme-container {
+        display: block;
+        width: 100%;
+        max-width: none;
+        text-align: center;
+    }
+
+    .aboutme-background-image {
+        position: fixed;
+    }
+
+    .aboutme-image {
+        position: static;
+        display: block;
+        margin: 0 auto;
+        width: min(60vw, 240px);
+        height: min(60vw, 240px);
+    }
+
+    .aboutme-content {
+        position: static;
+        width: 100%;
+        gap: 16px;
+    }
+
+    .aboutme-content>p:empty {
+        display: none;
+    }
+
+    .aboutme-title {
+        text-align: center;
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+    }
+
+    .aboutme-description {
+        margin-right: 0;
+        margin-bottom: 0;
+        font-size: 1rem;
+    }
+
+    .aboutme-info {
+        margin-top: 4px;
+        gap: 12px;
+    }
+
+    .info-item {
+        flex-wrap: wrap;
+        gap: 4px 12px;
+    }
+
+    .info-label {
+        min-width: 80px;
+    }
+
+    .info-value {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    /* ---------- Contact ---------- */
+    .contact-section {
+        position: relative;
+        min-height: 100vh;
+        min-height: 100svh;
+        padding: 100px 6% 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        text-align: center;
+    }
+
+    .contact-container {
+        display: contents;
+    }
+
+    .contact-background-image {
+        position: fixed;
+    }
+
+    .contact-content {
+        position: static;
+        transform: none;
+    }
+
+    .contact-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        width: 100%;
+    }
+
+    .email,
+    .linkedin-link-contact {
+        position: static;
+        transform: none;
+        display: block;
+        width: 100%;
+        max-width: 280px;
+        padding: 14px 20px;
+        text-align: center;
+    }
+
+    .email:hover,
+    .linkedin-link-contact:hover {
+        transform: scale(1.03);
+    }
+
+    /* ---------- Resume ---------- */
+    .resume-section {
+        position: relative;
+        padding: 100px 6% 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .resume-container {
+        display: contents;
+    }
+
+    .resume-background-image {
+        position: fixed;
+        height: 100%;
+        object-position: center;
+    }
+
+    .resume-content {
+        position: static;
+        transform: none;
+    }
+
+    .download-link {
+        position: static;
+        transform: none;
+        display: inline-block;
+        padding: 14px 24px;
+    }
+
+    .download-link:hover {
+        transform: scale(1.05);
+    }
+
+    .resume-dev {
+        position: relative;
+        padding: 20px 6% 60px;
+    }
+
+    /* Décor de la frise desktop : remplacé par une ligne par bloc (voir .resume-exp) */
+    .segment-vertical,
+    .bord-vertical1,
+    .bord-vertical2,
+    .cercle1,
+    .cercle2 {
+        display: none;
+    }
+
+    .resume-experiences {
+        margin: 0;
+    }
+
+    .resume-education {
+        position: static;
+        margin: 48px 0 0;
+    }
+
+    .resume-exp {
+        position: relative;
+        margin: 28px 0 0;
+        padding: 2px 0 2px 18px;
+        border-left: 2px solid #ffcaa7;
+    }
+
+    .resume-exp::before {
+        content: "";
+        position: absolute;
+        left: -7px;
+        top: 6px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #ffcaa7;
+    }
+
+    .experience-title {
+        font-size: 1.05rem;
+        margin-top: 0;
+    }
+
+    .resume-exp .experience-title:not(:first-child) {
+        margin-top: 28px;
+    }
+
+    .experience-infos {
+        margin-left: 0;
+    }
+
+    .experience-description {
+        max-width: 100%;
+    }
+
+    .education-description {
+        margin-right: 0;
+    }
+
+    /* ---------- Projets (liste) ---------- */
+    .projects-page .projects-section {
+        padding: 100px 5% 50px;
+    }
+
+    .projects-bento {
+        grid-template-rows: none;
+        grid-auto-rows: 240px;
+    }
+
+    .cell-g,
+    .cell-h,
+    .cell-i {
+        aspect-ratio: auto;
+        align-self: stretch;
+    }
+
+    /* ---------- Projets (détail) ---------- */
+    .project-detail-section {
+        padding: 100px 6% 70px;
+    }
+
+    .back-link {
+        padding: 8px 0;
+        margin-bottom: 20px;
+    }
+
+    .project-detail-header {
+        margin-bottom: 28px;
+    }
+
+    .project-detail-hero,
+    .project-carousel {
+        margin-bottom: 36px;
+    }
+
+    .project-carousel {
+        touch-action: pan-y;
+    }
+
+    .project-detail-content h2 {
+        margin-top: 32px;
+    }
+
+    /* Points du carrousel : zone de toucher agrandie */
+    .carousel-dot {
+        position: relative;
+        width: 10px;
+        height: 10px;
+    }
+
+    .carousel-dot::before {
+        content: "";
+        position: absolute;
+        inset: -8px -4px;
+    }
+}
+
+@media (max-width: 640px) {
+    .projects-bento {
+        grid-auto-rows: 220px;
+        gap: 16px;
+    }
+
+    .project-card span {
+        padding: 16px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Écrans tactiles (pas de survol) : on affiche ce qui n'apparaissait qu'au hover */
+@media (hover: none) {
+    .project-card span {
+        opacity: 1;
+    }
+
+    .carousel-arrow {
+        opacity: 1;
+    }
+}
